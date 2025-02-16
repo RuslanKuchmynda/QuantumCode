@@ -39,7 +39,3 @@ yarn-error.log*
 
 #idea
 .idea
-
-#husky
-/.husky/_/*
-!.husky/_/pre-commit.sh
