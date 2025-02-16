@@ -1,31 +1,36 @@
 # Front-End
 
-| Stack         |
-| ------------- |
-| Vite + React  |
-| Tailwind Css  |
-| Shadcn        |
-| React Query   |
-| Zustand       |
-| Socket.io     |
-| Monaco Editor |
-
-```
+## 📁 App Structure
+```markdown
 /frontend
- ├── public/                 # Static assets (favicon, manifest, etc.)
+ ├── public/                 # Static assets (favicon, manifest, fonts, images)
  ├── src/                    # Main source code
+ │   ├── app/                # Application pages (App Router structure)
  │   ├── components/         # Reusable UI components
  │   ├── hooks/              # Custom React hooks
- │   ├── pages/              # Application pages
- │   ├── routes/             # Application routing
  │   ├── services/           # API calls (React Query)
  │   ├── store/              # State management (Zustand)
  │   ├── utils/              # Utility functions
- │   ├── main.tsx            # Application entry point
- │   ├── App.tsx             # Root component
- ├── eslint.config.js        # ESLint configuration
- ├── index.html              # Main HTML file
+ ├── components.json         # Shadcn configuration
+ ├── eslint.config.mjs       # ESLint configuration
+ ├── next.config.js          # Next.js configuration
  ├── package.json            # Dependencies and scripts
+ ├── postcss.config.js       # PostCSS configuration
+ ├── README.md               # Project documentation
+ ├── tailwind.config.js      # Tailwind CSS configuration
  ├── tsconfig.json           # TypeScript configuration
- ├── vite.config.ts          # Vite configuration
 ```
+
+## 🛠️ Tech Stack
+| Technology    | Description |
+|--------------|-------------|
+| **Next.js**  | React framework for server-side rendering and static site generation |
+| **Tailwind CSS** | Utility-first CSS framework |
+| **ShadCN**   | UI component library for Next.js |
+| **React Query** | Server state management |
+| **Zustand**  | Simple and scalable state management library |
+| **Socket.io** | Real-time communication |
+| **Monaco Editor** | Code editor component (used in VS Code) |
+
+
+
