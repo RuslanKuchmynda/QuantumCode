@@ -9,12 +9,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
-  "lint-staged": {
-    "**/*.{js,ts,tsx,jsx,json,md}": "prettier --write",
-    "apps/**/**/*.{js,ts,tsx,jsx}": "eslint --fix --max-warnings=0",
-    "packages/**/**/*.{js,ts,tsx,jsx}": "eslint --fix --max-warnings=0"
-  },
+
   "devDependencies": {
+    "eslint": "^9.20.1",
+    "eslint-formatter-codeframe": "^7.32.1",
+    "eslint-formatter-table": "^7.32.1",
+    "eslint-formatter-unix": "^8.40.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.0",

@@ -42,4 +42,4 @@ yarn-error.log*
 
 #husky
 /.husky/_/*
-!.husky/_/pre-commit
+!.husky/_/pre-commit.sh
