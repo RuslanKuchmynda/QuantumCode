@@ -1,15 +1,18 @@
 #!/usr/bin/env sh
 echo "Running ESLint and Prettier..."
 
-npm run format
+# Отримуємо список змінених файлів
+changed_files=$(git diff --cached --name-only --diff-filter=ACM)
 
+# Форматуємо лише ті файли, які були змінені
+echo "$changed_files" | grep '\.js$' | xargs npx prettier --write
+
+# Виконуємо ESLint
 npm run lint
 lint_status=$?
 
 if [ $lint_status -ne 0 ]; then
-
-    echo "ESLint found issues. Please fix them before committing."
-
+  echo "ESLint found issues. Please fix them before committing."
   exit 1
 fi
 

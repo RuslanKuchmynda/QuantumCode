@@ -2,21 +2,20 @@
 
 QuantumCode is a **full-stack** web application designed for competitive programming, code collaboration, and real-time execution.
 
-
 ## 📁 Project Structure
 
 ```markdown
 /turbo-repo-root  
  ├── apps/  
- │   ├── frontend/          # React (Vite) app  
- │   ├── backend/           # NestJS API  
+ │ ├── frontend/ # React (Vite) app  
+ │ ├── backend/ # NestJS API  
  ├── packages/
- │   ├── eslint-config/     # Shared ESLint settings  
- │   ├── tsconfig/          # Shared TypeScript settings  
- ├── .gitignore             # Git ignore file  
- ├── turbo.json             # Turborepo configuration  
- ├── package.json           # Dependencies and scripts  
- ├── README.md              # Project documentation  
+│ ├── eslint-config/ # Shared ESLint settings  
+ │ ├── tsconfig/ # Shared TypeScript settings  
+ ├── .gitignore # Git ignore file  
+ ├── turbo.json # Turborepo configuration  
+ ├── package.json # Dependencies and scripts  
+ ├── README.md # Project documentation
 ```
 
 ---
@@ -24,20 +23,24 @@ QuantumCode is a **full-stack** web application designed for competitive program
 ## 🔧 Setup & Installation
 
 ### 1️⃣ Clone the Repository
+
 ```sh
-git clone https://github.com/your-repo/quantumcode.git  
-cd quantumcode  
+git clone https://github.com/your-repo/quantumcode.git
+cd quantumcode
 ```
 
 ### 2️⃣ Install Dependencies
+
 ```sh
-npm install 
+npm install
 ```
 
 ### 3️⃣ Run the Development Environment
+
 ```sh
-npm dev  
+npm dev
 ```
+
 This will start both the **frontend** and **backend** applications.
 
 ---
@@ -47,11 +50,13 @@ This will start both the **frontend** and **backend** applications.
 Create a `.env` file in `apps/backend` and `apps/frontend` with the following:
 
 ### **Backend (`apps/backend/.env`)**
+
 ```env
 none
 ```
 
 ### **Frontend (`apps/frontend/.env`)**
+
 ```env
 none
 ```
