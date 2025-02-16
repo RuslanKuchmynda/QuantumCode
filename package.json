@@ -2,13 +2,21 @@
   "name": "quantumcode",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,jsx,json,md}": "prettier --write",
+    "apps/**/**/*.{js,ts,tsx,jsx}": "eslint --fix --max-warnings=0",
+    "packages/**/**/*.{js,ts,tsx,jsx}": "eslint --fix --max-warnings=0"
+  },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "prettier": "^3.5.0",
     "turbo": "^2.4.2",
     "typescript": "5.7.3"
