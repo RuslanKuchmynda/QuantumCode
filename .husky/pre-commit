@@ -1,32 +1,24 @@
 #!/usr/bin/env sh
 echo "Running ESLint and Prettier..."
 
-#eslint_output=$(npx eslint ../apps/frontend/src/*.{ts,tsx} --config ../apps/frontend/eslint.config.js --max-warnings=0)
-#eslint_status=$?
-#
-#backend_output=$(npx eslint ../apps/backend/src/**.ts --config ../apps/backend/eslint.config.mjs --max-warnings=0)
-#backend_status=$?
-#
-#prettier_output=$(npx prettier --write "../apps/frontend/src/*.{ts,tsx}" "../apps/backend/src/**/*.ts")
-#prettier_status=$?
-#
-#if [ $eslint_status -ne 0 ] || [ $backend_status -ne 0 ] || [ $prettier_status -ne 0 ]; then
-#  echo "❌ ESLint and/or Prettier found issues. Please fix them before committing."
-#
-#  if [ $eslint_status -ne 0 ]; then
-#    echo "$eslint_output"
-#  fi
-#
-#  if [ $backend_status -ne 0 ]; then
-#    echo "$backend_output"
-#  fi
-#
-#  if [ $prettier_status -ne 0 ]; then
-#    echo "$prettier_output"
-#  fi
-#
-#  exit 1
-#fi
-#
-#echo "✅ Everything is fine, no ESLint or Prettier errors found!"
+npm run format
+prettier_status=$?
 
+npm run lint
+lint_status=$?
+
+if [ $prettier_status -ne 0 ] || [ $lint_status -ne 0 ]; then
+  echo "❌ Linting or formatting errors found. Please fix them before committing."
+
+  if [ $prettier_status -ne 0 ]; then
+    echo "Prettier found issues. Please fix them before committing."
+  fi
+
+  if [ $lint_status -ne 0 ]; then
+    echo "ESLint found issues. Please fix them before committing."
+  fi
+
+  exit 1
+fi
+
+echo "✅ Everything is fine, no lint or formatting issues found!"
