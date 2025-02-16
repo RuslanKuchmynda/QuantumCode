@@ -1,13 +1,6 @@
 #!/usr/bin/env sh
 echo "Running ESLint and Prettier..."
 
-# Отримуємо список змінених файлів
-changed_files=$(git diff --cached --name-only --diff-filter=ACM)
-
-# Форматуємо лише ті файли, які були змінені
-echo "$changed_files" | grep '\.js$' | xargs npx prettier --write
-
-# Виконуємо ESLint
 npm run lint
 lint_status=$?
 
