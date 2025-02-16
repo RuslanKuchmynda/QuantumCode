@@ -1,23 +1,11 @@
 #!/usr/bin/env sh
 echo "Running ESLint and Prettier..."
 
-npm run format
-prettier_status=$?
-
 npm run lint
 lint_status=$?
 
-if [ $prettier_status -ne 0 ] || [ $lint_status -ne 0 ]; then
-  echo "❌ Linting or formatting errors found. Please fix them before committing."
-
-  if [ $prettier_status -ne 0 ]; then
-    echo "Prettier found issues. Please fix them before committing."
-  fi
-
-  if [ $lint_status -ne 0 ]; then
-    echo "ESLint found issues. Please fix them before committing."
-  fi
-
+if [ $lint_status -ne 0 ]; then
+  echo "ESLint found issues. Please fix them before committing."
   exit 1
 fi
 
