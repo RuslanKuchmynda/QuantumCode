@@ -22,15 +22,16 @@
 ```
 
 ## 🛠️ Tech Stack
-| Technology    | Description |
-|--------------|-------------|
-| **Next.js**  | React framework for server-side rendering and static site generation |
-| **Tailwind CSS** | Utility-first CSS framework |
-| **ShadCN**   | UI component library for Next.js |
-| **React Query** | Server state management |
-| **Zustand**  | Simple and scalable state management library |
-| **Socket.io** | Real-time communication |
-| **Monaco Editor** | Code editor component (used in VS Code) |
+| Technology          | Description                                                          |
+|---------------------|----------------------------------------------------------------------|
+| **Next.js**         | React framework for server-side rendering and static site generation |
+| **React Hook Form** | Optimized form management with validation                            |
+| **Tailwind CSS**    | Utility-first CSS framework                                          |
+| **Shadcn**          | UI component library for Next.js                                     |
+| **React Query**     | Server state management                                              |
+| **Zustand**         | Simple and scalable state management library                         |
+| **Socket.io**       | Real-time communication                                              |
+| **Monaco Editor**   | Code editor component (used in VS Code)                              |
 
 
 
