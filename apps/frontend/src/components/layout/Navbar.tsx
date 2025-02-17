@@ -8,7 +8,7 @@ import { paths } from "@/constants/paths";
 export default function Navbar() {
   const pathname = usePathname();
 
-  if (pathname === paths.signIn || paths.signUp) {
+  if (pathname === paths.signIn || pathname === paths.signUp) {
     return;
   }
 
