@@ -8,6 +8,10 @@ import { paths } from "@/constants/paths";
 export default function Navbar() {
   const pathname = usePathname();
 
+  if (pathname === paths.signIn) {
+    return;
+  }
+
   return (
     <nav className="bg-card border-b-2 border-muted p-4">
       <ul className="flex justify-around items-center font-medium">
