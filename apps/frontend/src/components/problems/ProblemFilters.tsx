@@ -6,42 +6,33 @@ import {
   SelectValue,
 } from "@/components/ui/Select";
 import { Input } from "@/components/ui/Input";
+import FilterActionButtons from "@/components/filter/FilterActionButtons";
+
+const filterOptions = [
+  { placeholder: "Status", options: ["done", "open", "inProgress"] },
+  { placeholder: "Difficulty", options: ["easy", "medium", "hard"] },
+  { placeholder: "Type", options: ["algorithms", "database", "binary"] },
+];
 
 export default function ProblemFilters() {
   return (
-    <form className="flex gap-2">
-      <Input className="" placeholder="Search" />
-
-      <Select>
-        <SelectTrigger className="w-fit">
-          <SelectValue placeholder="Status" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="done">Done</SelectItem>
-          <SelectItem value="open">Open</SelectItem>
-          <SelectItem value="inProgress">In Progress</SelectItem>
-        </SelectContent>
-      </Select>
-      <Select>
-        <SelectTrigger className="w-fit">
-          <SelectValue placeholder="Difficulty" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="easy">Easy</SelectItem>
-          <SelectItem value="medium">Medium</SelectItem>
-          <SelectItem value="hard">Hard</SelectItem>
-        </SelectContent>
-      </Select>
-      <Select>
-        <SelectTrigger className="w-fit">
-          <SelectValue placeholder="Type" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="algorithms">Algorithms</SelectItem>
-          <SelectItem value="database">Database</SelectItem>
-          <SelectItem value="binary">Binary</SelectItem>
-        </SelectContent>
-      </Select>
+    <form className="flex items-center gap-2">
+      <Input placeholder="Search" />
+      {filterOptions.map(({ placeholder, options }) => (
+        <Select key={placeholder}>
+          <SelectTrigger className="w-fit">
+            <SelectValue placeholder={placeholder} />
+          </SelectTrigger>
+          <SelectContent>
+            {options.map((option) => (
+              <SelectItem key={option} value={option}>
+                {option.charAt(0).toUpperCase() + option.slice(1)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      ))}
+      <FilterActionButtons />
     </form>
   );
 }
