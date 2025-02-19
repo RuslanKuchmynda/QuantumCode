@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import Link from "next/link";
-import { paths } from "@/constants/paths";
+import { routes } from "@/constants/routes";
 
 export default function SignInForm() {
   return (
@@ -25,7 +25,7 @@ export default function SignInForm() {
         </form>
         <CardDescription>
           Don’t have an account?
-          <Link className="text-primary" href={paths.signUp}>
+          <Link className="text-primary" href={routes.signUp}>
             Sign up
           </Link>{" "}
         </CardDescription>
