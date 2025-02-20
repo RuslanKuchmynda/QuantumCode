@@ -10,7 +10,7 @@ QuantumCode is a **full-stack** web application designed for competitive program
  │ ├── frontend/ # React (Vite) app  
  │ ├── backend/ # NestJS API  
  ├── packages/
-│ ├── eslint-config/ # Shared ESLint settings  
+ │ ├── eslint-config/ # Shared ESLint settings  
  │ ├── tsconfig/ # Shared TypeScript settings  
  ├── .gitignore # Git ignore file  
  ├── turbo.json # Turborepo configuration  
