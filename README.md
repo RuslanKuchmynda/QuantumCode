@@ -52,7 +52,8 @@ Create a `.env` file in `apps/backend` and `apps/frontend` with the following:
 ### **Backend (`apps/backend/.env`)**
 
 ```env
-none
+DATABASE_URL=postgres://postgres:root@localhost:5432/your_database
+JWT_SECRET=
 ```
 
 ### **Frontend (`apps/frontend/.env`)**

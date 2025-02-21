@@ -1,1 +1,2 @@
-export * from "@schemas/user.schema";
+export * from "@schemas/users.schema";
+export * from "@schemas/problems.schema";
