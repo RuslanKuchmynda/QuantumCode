@@ -17,8 +17,6 @@ export default tseslint.config(
       },
       ecmaVersion: "latest",
       sourceType: "module",
-      experimentalDecorators: true,
-      emitDecoratorMetadata: true,
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,

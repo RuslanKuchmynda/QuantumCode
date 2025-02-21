@@ -20,7 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "migrate:generate": "npx drizzle-kit migrate:generate",
     "migrate": "npx drizzle-kit migrate",
-    "push": "npx drizzle-kit push"
+    "push": "npx drizzle-kit push",
+    "db:seed": "ts-node -r tsconfig-paths/register src/database/seeds/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

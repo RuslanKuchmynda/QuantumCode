@@ -2,9 +2,9 @@ import { Injectable, BadRequestException } from "@nestjs/common";
 import { eq } from "drizzle-orm";
 import { db } from "@/database/db";
 import { users } from "@/database/schemas";
-import * as bcrypt from "bcrypt";
 import { JwtService } from "@nestjs/jwt";
 import { SignUpDto } from "@/modules/auth/dto/signUp.dto";
+import { comparePassword, hashPassword } from "@/common/bcrypt.fucns";
 
 export interface User {
   id: number;
@@ -35,7 +35,7 @@ export class AuthService {
       throw new BadRequestException("User not found");
     }
 
-    const isValid = await bcrypt.compare(password, user[0].password);
+    const isValid = await comparePassword(password, user[0].password);
     if (!isValid) throw new BadRequestException("Invalid credentials");
 
     const token = this.generateToken(user[0]);
@@ -56,7 +56,7 @@ export class AuthService {
       throw new BadRequestException("User already exists");
     }
 
-    const hashedPassword = await bcrypt.hash(data.password, 10);
+    const hashedPassword = await hashPassword(data.password);
 
     const [newUser] = await db
       .insert(users)
