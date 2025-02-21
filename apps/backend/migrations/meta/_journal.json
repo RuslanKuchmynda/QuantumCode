@@ -15,6 +15,20 @@
       "when": 1740079773859,
       "tag": "0001_rapid_madrox",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1740175337385,
+      "tag": "0002_flowery_hydra",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1740175763228,
+      "tag": "0003_pale_pyro",
+      "breakpoints": true
     }
   ]
 }

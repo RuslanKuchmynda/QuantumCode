@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException } from "@nestjs/common";
 import { eq } from "drizzle-orm";
 import { db } from "@/database/db";
-import { users } from "@/database/schemas";
+import { userSchema } from "@/database/schemas";
 import { JwtService } from "@nestjs/jwt";
 import { SignUpDto } from "@/modules/auth/dto/signUp.dto";
 import { comparePassword, hashPassword } from "@/common/bcrypt.fucns";
@@ -28,8 +28,8 @@ export class AuthService {
   async signIn(email: string, password: string) {
     const user = await db
       .select()
-      .from(users)
-      .where(eq(users.email, email))
+      .from(userSchema)
+      .where(eq(userSchema.email, email))
       .limit(1);
     if (user.length === 0) {
       throw new BadRequestException("User not found");
@@ -50,8 +50,8 @@ export class AuthService {
 
     const existingUser = await db
       .select()
-      .from(users)
-      .where(eq(users.email, data.email));
+      .from(userSchema)
+      .where(eq(userSchema.email, data.email));
     if (existingUser.length > 0) {
       throw new BadRequestException("User already exists");
     }
@@ -59,7 +59,7 @@ export class AuthService {
     const hashedPassword = await hashPassword(data.password);
 
     const [newUser] = await db
-      .insert(users)
+      .insert(userSchema)
       .values({
         firstName: data.firstName,
         lastName: data.lastName,
@@ -68,7 +68,6 @@ export class AuthService {
       })
       .returning();
 
-    // Генерація токенів для нового користувача
     const token = this.generateToken(newUser);
 
     return { message: "Registered and logged in successfully", token };

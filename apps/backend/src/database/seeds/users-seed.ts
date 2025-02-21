@@ -1,5 +1,5 @@
 import { db } from "@/database/db";
-import { users } from "@/database/schemas";
+import { userSchema } from "@/database/schemas";
 import { hashPassword } from "@/common/bcrypt.fucns";
 
 const seedUsersData = [
@@ -25,7 +25,7 @@ export async function seedUsers() {
     })),
   );
 
-  await db.insert(users).values(userData);
+  await db.insert(userSchema).values(userData);
 
   console.log("Users seeded!");
 }
