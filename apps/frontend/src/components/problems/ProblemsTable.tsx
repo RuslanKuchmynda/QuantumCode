@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/Table";
 import { Badge } from "@/components/ui/Badge";
 
-export default function TablePromlems() {
+export default function TableProblems() {
   return (
     <Table>
       <TableHeader>
