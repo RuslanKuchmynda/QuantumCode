@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/Table";
 import { Badge } from "@/components/ui/Badge";
 import { useProblemsStore } from "@/store/problems.store";
+import ViewProblem from "@/components/problems/ViewProblem";
 
 export default function TableProblems() {
   const { problems } = useProblemsStore();
@@ -25,22 +26,26 @@ export default function TableProblems() {
       </TableHeader>
       <TableBody>
         {problems?.map((problem, key) => (
-          <TableRow key={key}>
-            <TableCell className="font-medium">{problem.status}</TableCell>
-            <TableCell>{problem.title}</TableCell>
-            <TableCell>
-              {/*todo fix it */}
+          <ViewProblem problem={problem} key={key}>
+            <TableRow key={key}>
+              <TableCell className="font-medium">{problem.status}</TableCell>
+              <TableCell>{problem.title}</TableCell>
+              <TableCell>
+                {/*todo fix Badge #14*/}
 
-              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-              {/* @ts-expect-error*/}
-              <Badge variant={problem.difficulty.toLowerCase()}>
-                {problem.difficulty}
-              </Badge>
-            </TableCell>
-            <TableCell className="text-right">{problem.submission}</TableCell>
-            <TableCell className="text-right">{problem.successRate}</TableCell>
-            <TableCell>{problem.type}</TableCell>
-          </TableRow>
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                {/* @ts-expect-error*/}
+                <Badge variant={problem.difficulty.toLowerCase()}>
+                  {problem.difficulty}
+                </Badge>
+              </TableCell>
+              <TableCell className="text-right">{problem.submission}</TableCell>
+              <TableCell className="text-right">
+                {problem.successRate}
+              </TableCell>
+              <TableCell>{problem.type}</TableCell>
+            </TableRow>
+          </ViewProblem>
         ))}
       </TableBody>
     </Table>
