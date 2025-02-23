@@ -13,7 +13,7 @@ const filterOptions = [
   { placeholder: "Difficulty", options: ["easy", "medium", "hard"] },
   { placeholder: "Type", options: ["algorithms", "database", "binary"] },
 ];
-//todo get filters from api
+//todo get filters from api #16
 export default function ProblemFilters() {
   return (
     <form className="flex items-center gap-2">
