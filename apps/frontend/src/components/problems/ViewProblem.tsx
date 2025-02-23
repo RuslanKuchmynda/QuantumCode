@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/Sheet";
 import { Button } from "../ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Problem } from "@/components/problems/Problems.funcs";
+import { getBadgeColor } from "@/services/colors";
 
 interface ViewProblemProps {
   problem: Problem;
@@ -29,11 +29,7 @@ export default function ViewProblem({ problem, children }: ViewProblemProps) {
 
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            {/*todo fix Badge #14 */}
-
-            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-            {/* @ts-expect-error*/}
-            <Badge variant={problem.difficulty.toLowerCase()}>
+            <Badge className={getBadgeColor(problem.difficulty)}>
               {problem.difficulty}
             </Badge>
             <span className="text-sm text-gray-500">
