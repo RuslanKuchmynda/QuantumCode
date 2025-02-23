@@ -40,9 +40,9 @@ const handleApiError = (error: unknown): string => {
   return "An unknown error occurred";
 };
 
-export const apiGet = async (route: string) => {
+export const apiGet = async <T>(route: string): Promise<ApiResponse<T>> => {
   try {
-    const response = await api.get(route);
+    const response = await api.get<ApiResponse<T>>(route);
     return response.data;
   } catch (error) {
     const errorMessage = handleApiError(error);

@@ -1,1 +1,1 @@
-export { useProblemsStore } from "@store/problems.store";
+export { useProblemsStore } from "@store/problems-store";

@@ -1,4 +1,6 @@
 import { apiGet } from "@/services/api";
+import { apiRoutes } from "@/constants/routes";
+
 export interface Problem {
   id: number;
   title: string;
@@ -9,6 +11,5 @@ export interface Problem {
   type: string;
 }
 export const getProblems = async () => {
-  const response: Problem[] = await apiGet("/problems");
-  return response;
+  return await apiGet<Problem[]>(apiRoutes.problems);
 };

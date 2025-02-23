@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/Table";
 import { Badge } from "@/components/ui/Badge";
-import { useProblemsStore } from "@/store/problems.store";
+import { useProblemsStore } from "@store/problems-store";
 import ViewProblem from "@/components/problems/ViewProblem";
 
 export default function TableProblems() {

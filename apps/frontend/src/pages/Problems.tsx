@@ -4,7 +4,7 @@ import Stats from "@/components/problems/Stats";
 import ProblemFilters from "@/components/problems/ProblemFilters";
 import { useQuery } from "@tanstack/react-query";
 import { getProblems } from "@/components/problems/Problems.funcs";
-import { useProblemsStore } from "@/store/problems.store";
+import { useProblemsStore } from "@store/problems-store";
 import { useEffect } from "react";
 
 export default function Problems() {

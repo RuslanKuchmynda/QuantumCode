@@ -40,7 +40,7 @@ export class AuthService {
 
     const token = this.generateToken(user[0]);
 
-    return { message: "Logged in successfully", user: user[0], ...token };
+    return { message: "Logged in successfully", data: { ...token } };
   }
 
   async signUp(data: SignUpDto) {
