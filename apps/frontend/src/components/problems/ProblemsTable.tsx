@@ -7,8 +7,10 @@ import {
   TableRow,
 } from "@/components/ui/Table";
 import { Badge } from "@/components/ui/Badge";
+import { useProblemsStore } from "@/store/problems.store";
 
-export default function TablePromlems() {
+export default function TableProblems() {
+  const { problems } = useProblemsStore();
   return (
     <Table>
       <TableHeader>
@@ -22,36 +24,24 @@ export default function TablePromlems() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCell className="font-medium">Open</TableCell>
-          <TableCell>1. Merge two array</TableCell>
-          <TableCell>
-            <Badge variant="medium">Medium</Badge>
-          </TableCell>
-          <TableCell className="text-right">563</TableCell>
-          <TableCell className="text-right">90%</TableCell>
-          <TableCell>Algorithms</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">In Progress</TableCell>
-          <TableCell>2. Bubble sort</TableCell>
-          <TableCell>
-            <Badge variant="easy">Easy</Badge>
-          </TableCell>
-          <TableCell className="text-right">822</TableCell>
-          <TableCell className="text-right">82%</TableCell>
-          <TableCell>Algorithms</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">In Progress</TableCell>
-          <TableCell>3. Palindrome</TableCell>
-          <TableCell>
-            <Badge variant="hard">Hard</Badge>
-          </TableCell>
-          <TableCell className="text-right">822</TableCell>
-          <TableCell className="text-right">82%</TableCell>
-          <TableCell>Algorithms</TableCell>
-        </TableRow>
+        {problems?.map((problem, key) => (
+          <TableRow key={key}>
+            <TableCell className="font-medium">{problem.status}</TableCell>
+            <TableCell>{problem.title}</TableCell>
+            <TableCell>
+              {/*todo fix it */}
+
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+              {/* @ts-expect-error*/}
+              <Badge variant={problem.difficulty.toLowerCase()}>
+                {problem.difficulty}
+              </Badge>
+            </TableCell>
+            <TableCell className="text-right">{problem.submission}</TableCell>
+            <TableCell className="text-right">{problem.successRate}</TableCell>
+            <TableCell>{problem.type}</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );
