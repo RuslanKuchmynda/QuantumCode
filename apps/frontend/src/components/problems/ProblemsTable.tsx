@@ -9,6 +9,7 @@ import {
 import { Badge } from "@/components/ui/Badge";
 import { useProblemsStore } from "@store/problems-store";
 import ViewProblem from "@/components/problems/ViewProblem";
+import { getBadgeColor } from "@/services/colors";
 
 export default function TableProblems() {
   const { problems } = useProblemsStore();
@@ -31,11 +32,7 @@ export default function TableProblems() {
               <TableCell className="font-medium">{problem.status}</TableCell>
               <TableCell>{problem.title}</TableCell>
               <TableCell>
-                {/*todo fix Badge #14*/}
-
-                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-                {/* @ts-expect-error*/}
-                <Badge variant={problem.difficulty.toLowerCase()}>
+                <Badge className={getBadgeColor(problem.difficulty)}>
                   {problem.difficulty}
                 </Badge>
               </TableCell>
