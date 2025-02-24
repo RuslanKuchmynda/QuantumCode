@@ -1,6 +1,7 @@
 const schemas = {
-  users: "users",
-  problems: "problems",
+  user: "user",
+  problem: "problem",
+  userStats: "userStats",
 };
 
 export { schemas };
