@@ -1,6 +1,8 @@
 export const getBadgeColor = (difficulty: string) => {
   switch (difficulty) {
     case "Easy":
+      console.log(difficulty);
+
       return "bg-primary-green hover:bg-primary-green";
     case "Medium":
       return "bg-primary-yellow hover:bg-primary-yellow";
