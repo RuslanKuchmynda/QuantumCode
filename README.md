@@ -5,10 +5,10 @@ QuantumCode is a **full-stack** web application designed for competitive program
 ## 📁 Project Structure
 
 ```markdown
-/turbo-repo-root  
+QuantumCode 
  ├── apps/  
- │ ├── frontend/ # React (Vite) app  
- │ ├── backend/ # NestJS API  
+ │ ├── frontend/ # NextJS
+ │ ├── backend/ # NestJS  
  ├── packages/
  │ ├── eslint-config/ # Shared ESLint settings  
  │ ├── tsconfig/ # Shared TypeScript settings  

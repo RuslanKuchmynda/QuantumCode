@@ -10,6 +10,7 @@ import {
 import { Button } from "../ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { getBadgeColor } from "@/services/colors";
+import { Problem } from "@/components/problems/Problems.funcs";
 
 interface ViewProblemProps {
   problem: Problem;
