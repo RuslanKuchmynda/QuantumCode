@@ -39,30 +39,15 @@ export default function ViewProblem({ problem, children }: ViewProblemProps) {
           </div>
 
           <div>
-            {/*todo add description for problemSchema + seeding #18 */}
             <h3 className="text-lg font-medium">Description</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
-              You are given an array of integers. Your task is to find the
-              maximum product of any two numbers in the array.
+              {problem.description}
             </p>
           </div>
           {/*todo create new component for example #19*/}
-          {/*todo add example for problemSchema + seeding #18*/}
-          <div className="bg-gray-100 p-4 rounded-md">
-            <h3 className="text-lg font-medium">Example</h3>
-            <pre className="text-sm bg-gray-200 p-2 rounded-md overflow-x-auto mt-2">
-              <code>
-                1.{"\n"}
-                Input: [3, 7, 1, 9, 5]{"\n"}
-                Output: 63 (7 * 9)
-              </code>
-            </pre>
-            <pre className="text-sm bg-gray-200 p-2 rounded-md overflow-x-auto mt-2">
-              <code>
-                2. {"\n"}
-                Input: [3, 7, 1, 9, 5]{"\n"}
-                Output: 63 (7 * 9)
-              </code>
+          <div>
+            <pre className="text-sm bg-gray-100 p-2 rounded-md overflow-x-auto mt-2">
+              <code>{problem.example}</code>
             </pre>
           </div>
           {/*todo create new component for this block code #20*/}

@@ -10,4 +10,6 @@ export const problemSchema = pgTable(schemas.problem, {
   submission: text("submission").notNull(),
   successRate: text("successRate").notNull(),
   type: text("type").notNull(),
+  example: text("example").notNull(),
+  description: text("description").notNull(),
 });

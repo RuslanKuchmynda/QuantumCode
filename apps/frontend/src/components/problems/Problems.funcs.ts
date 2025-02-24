@@ -4,6 +4,8 @@ import { apiRoutes } from "@/constants/routes";
 export interface Problem {
   id: number;
   title: string;
+  description: string;
+  example: string;
   status: string;
   difficulty: string;
   submission: string;
