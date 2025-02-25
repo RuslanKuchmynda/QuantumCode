@@ -11,6 +11,8 @@ import { Button } from "../ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { getBadgeColor } from "@/services/colors";
 import { Problem } from "@/components/problems/Problems.funcs";
+import { CodeBlock } from "@/components/ui/CodeBlock";
+import ProblemStats from "@/components/problems/ProblemStats";
 
 interface ViewProblemProps {
   problem: Problem;
@@ -44,27 +46,12 @@ export default function ViewProblem({ problem, children }: ViewProblemProps) {
               {problem.description}
             </p>
           </div>
-          {/*todo create new component for example #19*/}
-          <div>
-            <pre className="text-sm bg-gray-100 p-2 rounded-md overflow-x-auto mt-2">
-              <code>{problem.example}</code>
-            </pre>
-          </div>
-          {/*todo create new component for this block code #20*/}
-          <div className="grid grid-cols-3 gap-4 text-sm">
-            <div className="p-3 bg-gray-100 rounded-md">
-              <p className="text-gray-500">Submissions</p>
-              <p className="font-semibold">{problem.submission}</p>
-            </div>
-            <div className="p-3 bg-gray-100 rounded-md">
-              <p className="text-gray-500">Success Rate</p>
-              <p className="font-semibold">{problem.successRate}</p>
-            </div>
-            <div className="p-3 bg-gray-100 rounded-md">
-              <p className="text-gray-500">Type</p>
-              <p className="font-semibold">{problem.type}</p>
-            </div>
-          </div>
+          <CodeBlock code={problem.example} />
+          <ProblemStats
+            submission={problem.submission}
+            successRate={problem.successRate}
+            type={problem.type}
+          />
         </div>
         <SheetFooter className="flex my-6">
           <SheetClose asChild>

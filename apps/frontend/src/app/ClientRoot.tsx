@@ -3,10 +3,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SidebarProvider } from "@/components/ui/Sidebar";
 import { Sidebar } from "@/components/layout/Sidebar";
+import { useAuthInit } from "@store/auth-store";
+import { useState } from "react";
 
-const queryClient = new QueryClient();
-
-const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
+const ClientRoot = ({ children }: { children: React.ReactNode }) => {
+  const [queryClient] = useState(() => new QueryClient());
+  useAuthInit();
   return (
     <QueryClientProvider client={queryClient}>
       <SidebarProvider defaultOpen={false}>
@@ -17,4 +19,4 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default ClientWrapper;
+export default ClientRoot;

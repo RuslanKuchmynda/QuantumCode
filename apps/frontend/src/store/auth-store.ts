@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { useEffect } from "react";
 import { localStorageConstants } from "@/constants/local-storage";
 
 interface AuthStore {
@@ -9,32 +10,40 @@ interface AuthStore {
   clearAuth: () => void;
 }
 
-export const useAuthStore = create<AuthStore>((set) => {
-  const storedToken = window.localStorage.getItem(
-    localStorageConstants.accessToken,
-  );
+export const useAuthStore = create<AuthStore>((set) => ({
+  accessToken: null,
+  isLoggedIn: false,
 
-  return {
-    accessToken: storedToken || null,
-    isLoggedIn: !!storedToken,
-
-    setAccessToken: (accessToken: string) => {
+  setAccessToken: (accessToken: string) => {
+    if (typeof window !== "undefined") {
       localStorage.setItem(localStorageConstants.accessToken, accessToken);
-      set({ accessToken, isLoggedIn: true });
-    },
+    }
+    set({ accessToken, isLoggedIn: true });
+  },
 
-    setIsLoggedIn: (status: boolean) => {
-      set({ isLoggedIn: status });
-      if (!status && typeof window !== "undefined") {
-        localStorage.removeItem(localStorageConstants.accessToken);
-      }
-    },
+  setIsLoggedIn: (status: boolean) => {
+    set({ isLoggedIn: status });
+    if (!status && typeof window !== "undefined") {
+      localStorage.removeItem(localStorageConstants.accessToken);
+    }
+  },
 
-    clearAuth: () => {
-      if (typeof window !== "undefined") {
-        localStorage.removeItem(localStorageConstants.accessToken);
-      }
-      set({ accessToken: null, isLoggedIn: false });
-    },
-  };
-});
+  clearAuth: () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem(localStorageConstants.accessToken);
+    }
+    set({ accessToken: null, isLoggedIn: false });
+  },
+}));
+
+export const useAuthInit = () => {
+  const setAccessToken = useAuthStore((state) => state.setAccessToken);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedToken = localStorage.getItem(
+        localStorageConstants.accessToken,
+      );
+      if (storedToken) setAccessToken(storedToken);
+    }
+  }, [setAccessToken]);
+};
