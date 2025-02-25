@@ -7,7 +7,7 @@ export interface Problem {
   description: string;
   example: string;
   status: string;
-  difficulty: string;
+  difficulty: "Easy" | "Medium" | "Hard";
   submission: string;
   successRate: string;
   type: string;
