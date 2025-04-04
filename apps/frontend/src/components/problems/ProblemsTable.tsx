@@ -9,7 +9,6 @@ import {
 import { Badge } from "@/components/ui/Badge";
 import { useProblemsStore } from "@store/problems-store";
 import ViewProblem from "@/components/problems/ViewProblem";
-import { getBadgeColor } from "@/services/colors";
 
 export default function TableProblems() {
   const { problems } = useProblemsStore();
@@ -32,9 +31,7 @@ export default function TableProblems() {
               <TableCell className="font-medium">{problem.status}</TableCell>
               <TableCell>{problem.title}</TableCell>
               <TableCell>
-                <Badge className={getBadgeColor(problem.difficulty)}>
-                  {problem.difficulty}
-                </Badge>
+                <Badge variant={problem.difficulty}>{problem.difficulty}</Badge>
               </TableCell>
               <TableCell className="text-right">{problem.submission}</TableCell>
               <TableCell className="text-right">

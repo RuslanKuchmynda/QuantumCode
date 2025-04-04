@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/Sheet";
 import { Button } from "../ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { getBadgeColor } from "@/services/colors";
 import { Problem } from "@/components/problems/Problems.funcs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import ProblemStats from "@/components/problems/ProblemStats";
@@ -32,9 +31,7 @@ export default function ViewProblem({ problem, children }: ViewProblemProps) {
 
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <Badge className={getBadgeColor(problem.difficulty)}>
-              {problem.difficulty}
-            </Badge>
+            <Badge variant={problem.difficulty}>{problem.difficulty}</Badge>
             <span className="text-sm text-gray-500">
               Status: {problem.status}
             </span>
