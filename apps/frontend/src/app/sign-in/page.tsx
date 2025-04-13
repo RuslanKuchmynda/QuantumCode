@@ -1,4 +1,4 @@
-import SignIn from "@/pages/SignIn";
+import SignIn from "@/routes/SignIn";
 
 export default function SignInPage() {
   return <SignIn />;
