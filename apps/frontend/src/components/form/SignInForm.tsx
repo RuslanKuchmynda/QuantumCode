@@ -33,7 +33,7 @@ export default function SignInForm() {
   const onSubmit = async (data: FormData) => {
     try {
       const response = await signIn(data);
-      setAccessToken(response.data.accessToken);
+      setAccessToken(response.accessToken);
       router.push(routes.profile);
     } catch (error) {
       console.log(error);

@@ -27,12 +27,6 @@ api.interceptors.response.use(
   },
 );
 
-interface ApiResponse<T> {
-  status: string;
-  message: string;
-  data: T;
-}
-
 const handleApiError = (error: unknown): string => {
   if (error instanceof Error) {
     return error.message;
@@ -40,9 +34,9 @@ const handleApiError = (error: unknown): string => {
   return "An unknown error occurred";
 };
 
-export const apiGet = async <T>(route: string): Promise<ApiResponse<T>> => {
+export const apiGet = async <T>(route: string): Promise<T> => {
   try {
-    const response = await api.get<ApiResponse<T>>(route);
+    const response = await api.get<T>(route);
     return response.data;
   } catch (error) {
     const errorMessage = handleApiError(error);
@@ -51,12 +45,9 @@ export const apiGet = async <T>(route: string): Promise<ApiResponse<T>> => {
   }
 };
 
-export const apiPost = async <T, R>(
-  route: string,
-  data: T,
-): Promise<ApiResponse<R>> => {
+export const apiPost = async <T, R>(route: string, data: T): Promise<R> => {
   try {
-    const response = await api.post<ApiResponse<R>>(route, data);
+    const response = await api.post<R>(route, data);
     return response.data;
   } catch (error) {
     const errorMessage = handleApiError(error);
@@ -65,12 +56,9 @@ export const apiPost = async <T, R>(
   }
 };
 
-export const apiPut = async <T, R>(
-  route: string,
-  data: T,
-): Promise<ApiResponse<R>> => {
+export const apiPut = async <T, R>(route: string, data: T): Promise<R> => {
   try {
-    const response = await api.put<ApiResponse<R>>(route, data);
+    const response = await api.put<R>(route, data);
     return response.data;
   } catch (error) {
     const errorMessage = handleApiError(error);
@@ -79,9 +67,9 @@ export const apiPut = async <T, R>(
   }
 };
 
-export const apiDelete = async <T>(route: string): Promise<ApiResponse<T>> => {
+export const apiDelete = async <T>(route: string): Promise<T> => {
   try {
-    const response = await api.delete<ApiResponse<T>>(route);
+    const response = await api.delete<T>(route);
     return response.data;
   } catch (error) {
     const errorMessage = handleApiError(error);
@@ -90,12 +78,9 @@ export const apiDelete = async <T>(route: string): Promise<ApiResponse<T>> => {
   }
 };
 
-export const apiPatch = async <T, R>(
-  route: string,
-  data: T,
-): Promise<ApiResponse<R>> => {
+export const apiPatch = async <T, R>(route: string, data: T): Promise<R> => {
   try {
-    const response = await api.patch<ApiResponse<R>>(route, data);
+    const response = await api.patch<R>(route, data);
     return response.data;
   } catch (error) {
     const errorMessage = handleApiError(error);

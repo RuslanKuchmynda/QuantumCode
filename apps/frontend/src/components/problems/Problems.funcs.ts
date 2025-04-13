@@ -13,6 +13,5 @@ export interface Problem {
   type: string;
 }
 export const getProblems = async () => {
-  const response = await apiGet<Problem[]>(apiRoutes.problems);
-  return response.data;
+  return await apiGet<Problem[]>(apiRoutes.problems);
 };
