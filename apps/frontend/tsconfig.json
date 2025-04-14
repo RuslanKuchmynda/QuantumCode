@@ -24,7 +24,8 @@
       "@store/*": ["./src/store/*"],
       "@components/*": [".src/components/*"],
       "@constants/*": [".src/constants/*"],
-      "@hooks/*": [".src/hooks/*"]
+      "@hooks/*": [".src/hooks/*"],
+      "@shared/*" : ["../../packages/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

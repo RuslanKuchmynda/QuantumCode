@@ -1,17 +1,8 @@
 import { apiGet } from "@/services/api";
 import { apiRoutes } from "@/constants/routes";
+import { WithId } from "@shared/interfaces/withId";
+import { Problem } from "@shared/interfaces/problem";
 
-export interface Problem {
-  id: number;
-  title: string;
-  description: string;
-  example: string;
-  status: string;
-  difficulty: "Easy" | "Medium" | "Hard";
-  submission: string;
-  successRate: string;
-  type: string;
-}
 export const getProblems = async () => {
-  return await apiGet<Problem[]>(apiRoutes.problems);
+  return await apiGet<WithId<Problem[]>>(apiRoutes.problems);
 };

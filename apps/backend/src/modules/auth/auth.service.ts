@@ -5,19 +5,14 @@ import { userSchema } from "@/database/schemas";
 import { JwtService } from "@nestjs/jwt";
 import { SignUpDto } from "@/modules/auth/dto/signUp.dto";
 import { comparePassword, hashPassword } from "@/common/bcrypt.fucns";
-
-export interface User {
-  id: number;
-  email: string;
-  password: string;
-  refreshToken?: string | null;
-}
+import { WithId } from "@shared/interfaces/withId";
+import { User } from "@shared/interfaces/user";
 
 @Injectable()
 export class AuthService {
   constructor(private jwtService: JwtService) {}
 
-  generateToken(user: User) {
+  generateToken(user: WithId<User>) {
     const accessToken = this.jwtService.sign(
       { id: user.id, email: user.email },
       { expiresIn: "60m" },
