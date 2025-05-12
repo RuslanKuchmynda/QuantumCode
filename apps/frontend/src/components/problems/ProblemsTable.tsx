@@ -18,10 +18,10 @@ export default function TableProblems() {
         <TableRow>
           <TableHead className="w-32">Status</TableHead>
           <TableHead className="w-1/3">Title</TableHead>
+          <TableHead>Type</TableHead>
           <TableHead>Difficulty</TableHead>
           <TableHead className="text-right">Submissions</TableHead>
           <TableHead className="text-right">Success Rate</TableHead>
-          <TableHead>Type</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -30,6 +30,7 @@ export default function TableProblems() {
             <TableRow key={key}>
               <TableCell className="font-medium">{problem.status}</TableCell>
               <TableCell>{problem.title}</TableCell>
+              <TableCell>{problem.type}</TableCell>
               <TableCell>
                 <Badge variant={problem.difficulty}>{problem.difficulty}</Badge>
               </TableCell>
@@ -37,7 +38,6 @@ export default function TableProblems() {
               <TableCell className="text-right">
                 {problem.successRate}
               </TableCell>
-              <TableCell>{problem.type}</TableCell>
             </TableRow>
           </ViewProblem>
         ))}

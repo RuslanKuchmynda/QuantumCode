@@ -1,5 +1,34 @@
-import Problems from "@/routes/Problems";
+"use client";
+
+import TableProblems from "@/components/problems/ProblemsTable";
+import ProblemFilters from "@/components/problems/ProblemFilters";
+import { useQuery } from "@tanstack/react-query";
+import { getProblems } from "@/components/problems/Problems.funcs";
+import { useProblemsStore } from "@store/problems-store";
+import { useEffect } from "react";
 
 export default function ProblemsPage() {
-  return <Problems />;
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["problems"],
+    queryFn: getProblems,
+  });
+
+  const { setProblems } = useProblemsStore();
+
+  useEffect(() => {
+    if (!isLoading && !error && data) {
+      setProblems(data);
+    }
+  }, [data, isLoading, error]);
+
+  return (
+    <div className="mt-10 px-10">
+      <div className="flex flex-col gap-4">
+        <ProblemFilters />
+        <div>
+          <TableProblems />
+        </div>
+      </div>
+    </div>
+  );
 }

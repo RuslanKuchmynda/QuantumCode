@@ -47,8 +47,8 @@ export const apiGet = async <T>(route: string): Promise<T> => {
 
 export const apiPost = async <T, R>(route: string, data: T): Promise<R> => {
   try {
-    const response = await api.post<R>(route, data);
-    return response.data;
+    const response = await api.post<{ data: R }>(route, data);
+    return response.data.data;
   } catch (error) {
     const errorMessage = handleApiError(error);
     log.error(`Failed to send data to ${route}: ${errorMessage}`);
