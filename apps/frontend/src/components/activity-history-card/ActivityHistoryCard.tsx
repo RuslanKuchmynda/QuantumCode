@@ -10,7 +10,7 @@ export default function ActivityHistoryCard() {
           <div className="flex items-center gap-4">
             <CheckCircle className="h-5 w-5 text-green-500" />
             <div>
-              <p className="font-medium">Solved "Two Sum"</p>
+              <p className="font-medium">Solved &quot;Two Sum&quot;</p>
               <p className="text-sm text-muted-foreground">
                 Medium • Algorithms
               </p>
@@ -25,7 +25,7 @@ export default function ActivityHistoryCard() {
           <div className="flex items-center gap-4">
             <XCircle className="h-5 w-5 text-red-500" />
             <div>
-              <p className="font-medium">Failed "Binary Search"</p>
+              <p className="font-medium">Failed &quot;Binary Search&quot;</p>
               <p className="text-sm text-muted-foreground">Easy • Algorithms</p>
             </div>
           </div>
@@ -38,7 +38,7 @@ export default function ActivityHistoryCard() {
           <div className="flex items-center gap-4">
             <CheckCircle className="h-5 w-5 text-green-500" />
             <div>
-              <p className="font-medium">Solved "Linked List Cycle"</p>
+              <p className="font-medium">Solved &quot;Linked List Cycle&quot;</p>
               <p className="text-sm text-muted-foreground">
                 Medium • Data Structures
               </p>

@@ -19,6 +19,7 @@ export default function ProblemsPage() {
     if (!isLoading && !error && data) {
       setProblems(data);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, isLoading, error]);
 
   return (
