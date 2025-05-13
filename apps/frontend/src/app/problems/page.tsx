@@ -22,7 +22,10 @@ export default function ProblemsPage() {
   }, [data, isLoading, error]);
 
   return (
-    <div className="mt-10 px-10">
+    <div className="container mx-auto py-8 px-4 space-y-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold">Problems</h1>
+      </div>
       <div className="flex flex-col gap-4">
         <ProblemFilters />
         <div>

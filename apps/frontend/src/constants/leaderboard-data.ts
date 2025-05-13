@@ -1,0 +1,94 @@
+import { LeaderboardUser } from "@shared/interfaces/leaderboard";
+
+export const LeaderboardData: LeaderboardUser[] = [
+    {
+      rank: 1,
+      username: "quantum_master",
+      points: 3200,
+      solvedProblems: 78,
+      rating: 2500,
+      streak: 42,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=quantum"
+    },
+    {
+      rank: 2,
+      username: "alex_coder",
+      points: 2500,
+      solvedProblems: 45,
+      rating: 2100,
+      streak: 15,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=bob"
+    },
+    {
+      rank: 3,
+      username: "maria_dev",
+      points: 2300,
+      solvedProblems: 42,
+      rating: 1950,
+      streak: 12,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=maria"
+    },
+    {
+      rank: 4,
+      username: "john_algorithm",
+      points: 2100,
+      solvedProblems: 38,
+      rating: 1800,
+      streak: 8,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=john"
+    },
+    {
+      rank: 5,
+      username: "sarah_leetcode",
+      points: 1950,
+      solvedProblems: 35,
+      rating: 1750,
+      streak: 20,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah"
+    },
+    {
+      rank: 6,
+      username: "mike_codes",
+      points: 1800,
+      solvedProblems: 32,
+      rating: 1650,
+      streak: 5,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=mike"
+    },
+    {
+      rank: 7,
+      username: "anna_programmer",
+      points: 1650,
+      solvedProblems: 30,
+      rating: 1600,
+      streak: 10,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=anna"
+    },
+    {
+      rank: 8,
+      username: "david_hacker",
+      points: 1500,
+      solvedProblems: 28,
+      rating: 1550,
+      streak: 7,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=david"
+    },
+    {
+      rank: 9,
+      username: "lisa_developer",
+      points: 1350,
+      solvedProblems: 25,
+      rating: 1500,
+      streak: 3,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=lisa"
+    },
+    {
+      rank: 10,
+      username: "tom_coder",
+      points: 1200,
+      solvedProblems: 22,
+      rating: 1450,
+      streak: 1,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=tom"
+    }
+  ];
