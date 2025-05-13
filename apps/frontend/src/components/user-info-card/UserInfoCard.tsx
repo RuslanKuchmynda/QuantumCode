@@ -1,7 +1,7 @@
-import { Card } from "../ui/Card";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/Avatar";
+import { Card } from "@/components/ui/Card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { userData } from "@/constants/user-data";
-import { Progress } from "../ui/Progress";
+import { Progress } from "@/components/ui/Progress";
 
 export default function UserInfoCard() {
   return (

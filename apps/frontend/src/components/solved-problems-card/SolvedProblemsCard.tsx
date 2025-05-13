@@ -1,6 +1,6 @@
 import { userData } from "@/constants/user-data";
-import { Card } from "../ui/Card";
-import { Progress } from "../ui/Progress";
+import { Card } from "@/components/ui/Card";
+import { Progress } from "@/components/ui/Progress";
 
 export default function SolvedProblemsCard() {
   return (

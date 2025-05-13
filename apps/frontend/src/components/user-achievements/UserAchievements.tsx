@@ -1,5 +1,5 @@
 import { userData } from "@/constants/user-data";
-import { Card } from "../ui/Card";
+import { Card } from "@/components/ui/Card";
 
 export default function UserAchievements() {
   return (

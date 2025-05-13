@@ -1,6 +1,6 @@
 import { userData } from "@/constants/user-data";
-import { Card } from "../ui/Card";
-import { Badge } from "../ui/Badge";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 
 export default function ActivityHistoryCard() {
   return (

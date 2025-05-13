@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/Sheet";
 import { Button } from "../ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { CodeBlock } from "@/components/ui/CodeBlock";
 import ProblemStats from "@/components/problems/ProblemStats";
 import Link from "next/link";
 import { Problem } from "@shared/interfaces/problem";
+import ExampleCard from "../example-card/ExampleCard";
 
 interface ViewProblemProps {
   problem: Problem;
@@ -44,7 +44,7 @@ export default function ViewProblem({ problem, children }: ViewProblemProps) {
               {problem.description}
             </p>
           </div>
-          <CodeBlock code={problem.example} />
+          <ExampleCard example={problem.example} />
           <ProblemStats
             submission={problem.submission}
             successRate={problem.successRate}

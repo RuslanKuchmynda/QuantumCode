@@ -50,6 +50,13 @@
       "when": 1740434669158,
       "tag": "0006_bumpy_killmonger",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1747156386730,
+      "tag": "0007_damp_blue_blade",
+      "breakpoints": true
     }
   ]
 }
