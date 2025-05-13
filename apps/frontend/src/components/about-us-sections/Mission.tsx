@@ -11,9 +11,9 @@ export default function Mission() {
         developers.
       </p>
       <p className="text-muted-foreground">
-        We&apos;re committed to providing a platform that not only helps you learn
-        coding but also prepares you for real-world challenges and technical
-        interviews.
+        We&apos;re committed to providing a platform that not only helps you
+        learn coding but also prepares you for real-world challenges and
+        technical interviews.
       </p>
     </Card>
   );

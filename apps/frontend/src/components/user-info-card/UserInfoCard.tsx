@@ -22,10 +22,7 @@ export default function UserInfoCard() {
             <span>Rank</span>
             <span className="font-semibold">#{userData.rank}</span>
           </div>
-          <Progress
-            value={userData.acceptanceRate}
-            className="h-2"
-          />
+          <Progress value={userData.acceptanceRate} className="h-2" />
           <p className="text-sm text-gray-500 mt-1">
             Acceptance Rate: {userData.acceptanceRate}%
           </p>

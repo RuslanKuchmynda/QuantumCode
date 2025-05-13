@@ -47,4 +47,4 @@ export function ForumPost({ post }: ForumPostProps) {
       </div>
     </Card>
   );
-} 
+}

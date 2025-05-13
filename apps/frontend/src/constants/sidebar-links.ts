@@ -6,7 +6,6 @@ import {
   User,
   MessageSquareMore,
   Settings,
-  ChartLine,
 } from "lucide-react";
 
 export const sidebarLinks = [
@@ -14,12 +13,6 @@ export const sidebarLinks = [
     link: routes.profile,
     label: "Profile",
     icon: User,
-    requiredAuth: true,
-  },
-  {
-    link: routes.userStats,
-    label: "Statistics",
-    icon: ChartLine,
     requiredAuth: true,
   },
   {

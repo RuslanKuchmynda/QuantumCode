@@ -16,4 +16,3 @@ export interface Example {
   output: string;
   explanation: string;
 }
-

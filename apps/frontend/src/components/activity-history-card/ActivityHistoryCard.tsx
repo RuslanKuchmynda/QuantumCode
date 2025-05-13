@@ -1,29 +1,54 @@
-import { userData } from "@/constants/user-data";
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { CheckCircle, XCircle } from "lucide-react";
 
 export default function ActivityHistoryCard() {
   return (
-    <Card className="p-5 pb-3">
-      <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
+    <Card className="p-6">
+      <h3 className="text-xl font-semibold mb-4">Recent Activity</h3>
       <div className="space-y-4">
-        {userData.recentActivity.map((activity, index) => (
-          <div
-            key={index}
-            className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-          >
-            <div className="flex items-center space-x-3">
-              <span className="font-medium">{activity.problem}</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Badge variant={activity.difficulty}>{activity.difficulty}</Badge>
-              <span className="text-sm text-gray-500">{activity.date}</span>
+        <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+          <div className="flex items-center gap-4">
+            <CheckCircle className="h-5 w-5 text-green-500" />
+            <div>
+              <p className="font-medium">Solved "Two Sum"</p>
+              <p className="text-sm text-muted-foreground">
+                Medium • Algorithms
+              </p>
             </div>
           </div>
-        ))}
-      </div>
-      <div className="text-sm text-gray-500 text-center mt-2 pt-2">
-        Show more
+          <div className="text-right">
+            <span className="text-sm text-muted-foreground">2 hours ago</span>
+            <p className="text-sm text-green-500">+10 points</p>
+          </div>
+        </div>
+        <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+          <div className="flex items-center gap-4">
+            <XCircle className="h-5 w-5 text-red-500" />
+            <div>
+              <p className="font-medium">Failed "Binary Search"</p>
+              <p className="text-sm text-muted-foreground">Easy • Algorithms</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <span className="text-sm text-muted-foreground">5 hours ago</span>
+            <p className="text-sm text-red-500">Wrong Answer</p>
+          </div>
+        </div>
+        <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+          <div className="flex items-center gap-4">
+            <CheckCircle className="h-5 w-5 text-green-500" />
+            <div>
+              <p className="font-medium">Solved "Linked List Cycle"</p>
+              <p className="text-sm text-muted-foreground">
+                Medium • Data Structures
+              </p>
+            </div>
+          </div>
+          <div className="text-right">
+            <span className="text-sm text-muted-foreground">1 day ago</span>
+            <p className="text-sm text-green-500">+15 points</p>
+          </div>
+        </div>
       </div>
     </Card>
   );

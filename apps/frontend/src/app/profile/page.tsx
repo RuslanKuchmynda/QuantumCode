@@ -1,29 +1,31 @@
-"use client";
-
-import UserInfoCard from "@/components/user-info-card/UserInfoCard";
-import SkillsAndLanguagesCard from "@/components/skills-and-languages-card/SkillsAndLanguagesCard";
-import SolvedProblemsCard from "@/components/solved-problems-card/SolvedProblemsCard";
 import ActivityHistoryCard from "@/components/activity-history-card/ActivityHistoryCard";
+import ProblemStats from "@/components/problem-stats/ProblemStats";
+import SubmissionStats from "@/components/submission-stats/SubmissionStats";
 import UserAchievements from "@/components/user-achievements/UserAchievements";
+import UserStats from "@/components/user-stats/UserStats";
 
-export default function ProfilePage() {
+export default function UserStatisticsPage() {
   return (
-    <div className="container mx-auto py-8 px-4 space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Profile</h1>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-1 space-y-6">
-          <UserInfoCard />
-          <SkillsAndLanguagesCard />
-          <SolvedProblemsCard />
+    <div className="container mx-auto py-8 space-y-8">
+      <div className="flex items-center gap-6">
+        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+          <span className="text-2xl font-bold">JD</span>
         </div>
+        <div>
+          <h1 className="text-3xl font-bold">John Doe</h1>
+          <p className="text-muted-foreground">Member since January 2024</p>
+        </div>
+      </div>
 
-        <div className="md:col-span-2 space-y-6">
-          <ActivityHistoryCard />
-          <UserAchievements />
-        </div>
+      <UserStats />
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <ProblemStats />
+        <SubmissionStats />
       </div>
+
+      <ActivityHistoryCard />
+      <UserAchievements />
     </div>
   );
 }
