@@ -9,9 +9,10 @@ import {
 } from "@/components/ui/Sheet";
 import { Button } from "../ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Problem } from "@/components/problems/Problems.funcs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import ProblemStats from "@/components/problems/ProblemStats";
+import Link from "next/link";
+import { Problem } from "@shared/interfaces/problem";
 
 interface ViewProblemProps {
   problem: Problem;
@@ -54,7 +55,9 @@ export default function ViewProblem({ problem, children }: ViewProblemProps) {
           <SheetClose asChild>
             <Button variant="outline">Close</Button>
           </SheetClose>
-          <Button>Start</Button>
+          <Link href={`/problems/${problem.id}`}>
+            <Button>Start</Button>
+          </Link>
         </SheetFooter>
       </SheetContent>
     </Sheet>
