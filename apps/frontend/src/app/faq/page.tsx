@@ -22,7 +22,7 @@ export default function FAQPage() {
 
       <Card className="p-6">
         <div className="flex flex-col items-center gap-4">
-          <h2 className="text-xl font-semibold">Can't find what you're looking for?</h2>
+          <h2 className="text-xl font-semibold">Can&apos;t find what you&apos;re looking for?</h2>
           <div className="flex gap-4">
             <Button variant="outline" className="gap-2">
               <MessageSquare className="h-4 w-4" />
