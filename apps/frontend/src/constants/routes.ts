@@ -4,7 +4,7 @@ export const routes = {
   signUp: "/sign-up",
   problems: "/problems",
   leaderboard: "/leaderboard",
-  about: "/about",
+  aboutUs: "/about-us",
   profile: "/profile",
   forum: "/forum",
   settings: "/settings",

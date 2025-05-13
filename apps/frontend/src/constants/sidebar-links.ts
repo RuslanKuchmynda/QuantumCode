@@ -41,7 +41,7 @@ export const sidebarLinks = [
     requiredAuth: false,
   },
   {
-    link: routes.about,
+    link: routes.aboutUs,
     label: "About us",
     icon: Info,
     requiredAuth: false,
