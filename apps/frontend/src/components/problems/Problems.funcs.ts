@@ -1,8 +1,11 @@
 import { apiGet } from "@/services/api";
 import { apiRoutes } from "@/constants/routes";
-import { WithId } from "@shared/interfaces/withId";
-import { Problem } from "@shared/interfaces/problem";
+import { Problem, ProblemList } from "@shared/interfaces/problem";
+
+export const getProblemById = async (id: number) => {
+  return await apiGet<Problem>(`${apiRoutes.problems}/${id}`);
+};
 
 export const getProblems = async () => {
-  return await apiGet<WithId<Problem[]>>(apiRoutes.problems);
+  return await apiGet<ProblemList[]>(apiRoutes.problems);
 };

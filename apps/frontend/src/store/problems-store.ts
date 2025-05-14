@@ -1,15 +1,19 @@
 import { create } from "zustand";
-import { WithId } from "@shared/interfaces/withId";
-import { Problem } from "@shared/interfaces/problem";
+import { ProblemList, Problem } from "@shared/interfaces/problem";
 
 interface ProblemsState {
-  problems: WithId<Problem[]> | null;
-  setProblems: (data: WithId<Problem[]>) => void;
+  problems: ProblemList[] | null;
+  problemDetails: Record<number, Problem>;
+  setProblems: (data: ProblemList[]) => void;
+  setProblemDetails: (id: number, details: Problem) => void;
 }
 
 export const useProblemsStore = create<ProblemsState>((set) => ({
   problems: null,
-  setProblems: (data) => {
-    set({ problems: data });
-  },
+  problemDetails: {},
+  setProblems: (data) => set({ problems: data }),
+  setProblemDetails: (id, details) => 
+    set((state) => ({
+      problemDetails: { ...state.problemDetails, [id]: details }
+    })),
 }));

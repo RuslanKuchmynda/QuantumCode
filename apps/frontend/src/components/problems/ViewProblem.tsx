@@ -13,9 +13,10 @@ import ProblemStats from "@/components/problems/ProblemStats";
 import Link from "next/link";
 import { Problem } from "@shared/interfaces/problem";
 import ExampleCard from "../example-card/ExampleCard";
+import { WithId } from "@shared/interfaces/withId";
 
 interface ViewProblemProps {
-  problem: Problem;
+  problem: WithId<Problem>;
   children?: React.ReactNode;
 }
 

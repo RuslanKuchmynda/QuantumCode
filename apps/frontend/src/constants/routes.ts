@@ -9,6 +9,7 @@ export const routes = {
   forum: "/forum",
   settings: "/settings",
   userStats: "/profile/stats",
+  faq: "/faq",
 };
 
 export const apiRoutes = {

@@ -6,6 +6,7 @@ import {
   User,
   MessageSquareMore,
   Settings,
+  HelpCircle,
 } from "lucide-react";
 
 export const sidebarLinks = [
@@ -44,5 +45,11 @@ export const sidebarLinks = [
     label: "Settings",
     icon: Settings,
     requiredAuth: true,
+  },
+  {
+    link: routes.faq,
+    label: "FAQ",
+    icon: HelpCircle,
+    requiredAuth: false,
   },
 ];

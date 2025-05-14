@@ -1,6 +1,6 @@
 import { db } from "@/database/db";
 import { userSchema } from "@/database/schemas";
-import { problemSchema } from "@/database/schemas";
+import { problemListSchema, problemDetailsSchema } from "@/database/schemas";
 import { seedUsers } from "@/database/seeds/users-seed";
 import { seedProblems } from "@/database/seeds/problems-seed";
 import { userStatsSchema } from "@schemas/user-stats.schema";
@@ -24,7 +24,8 @@ async function clearDatabase() {
 
   await clearTable(userSchema);
   await clearTable(userStatsSchema);
-  await clearTable(problemSchema);
+  await clearTable(problemListSchema);
+  await clearTable(problemDetailsSchema);
 
   console.log("Tables cleared and IDs reset!");
 }
