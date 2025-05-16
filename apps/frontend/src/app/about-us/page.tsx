@@ -1,8 +1,8 @@
 import Roadmap from "@/components/roadmap/Roadmap";
-import Mission from "@/components/about-us-sections/Mission";
-import Features from "@/components/about-us-sections/Features";
-import Contact from "@/components/about-us-sections/Contact";
-import Hero from "@/components/about-us-sections/Hero";
+import Mission from "@/components/about-us/Mission";
+import Features from "@/components/about-us/Features";
+import Contact from "@/components/about-us/Contact";
+import Hero from "@/components/about-us/Hero";
 
 export default function AboutUsPage() {
   return (

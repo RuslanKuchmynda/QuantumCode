@@ -1,8 +1,19 @@
+"use client"
+
 import { Card } from "@/components/ui/Card";
 import { Switch } from "@/components/ui/Switch";
 import { Moon, Sun, Palette } from "lucide-react";
+import { useTheme } from "next-themes";
+
 
 export function ThemeSettings() {
+
+  const { setTheme, theme } = useTheme()
+
+  const handleThemeChange = (checked: boolean) => {
+    setTheme(checked ? "dark" : "light")
+  }
+
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between">
@@ -16,9 +27,12 @@ export function ThemeSettings() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Sun className="h-4 w-4" />
-          <Switch />
-          <Moon className="h-4 w-4" />
+          {theme === "dark" ? (
+            <Sun className="h-4 w-4" />
+          ) : (
+            <Moon className="h-4 w-4" />
+          )}
+          <Switch onCheckedChange={handleThemeChange} checked={theme === "dark"} />
         </div>
       </div>
     </Card>
