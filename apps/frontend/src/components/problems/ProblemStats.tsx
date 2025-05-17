@@ -1,6 +1,6 @@
 interface ProblemStatsProps {
-  submission: string;
-  successRate: string;
+  submission: number;
+  successRate: number;
   type: string;
 }
 

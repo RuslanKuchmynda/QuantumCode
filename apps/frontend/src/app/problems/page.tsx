@@ -17,9 +17,9 @@ export default function ProblemsPage() {
 
   useEffect(() => {
     if (!isLoading && !error && data) {
-      setProblems(data);
+      setProblems(data.problems);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, isLoading, error]);
 
   return (

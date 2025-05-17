@@ -1,27 +1,28 @@
 import { db } from "@/database/db";
 import { hashPassword } from "@/common/bcrypt.fucns";
 import { userSchema } from "@/database/schemas";
+import { usersIds } from "@/constants/users-ids";
 
-const seedUsersData: Array<{
-  email: string;
-  firstName: string;
-  lastName: string;
-  password: string;
-  role: "admin" | "dev";
-}> = [
+const seedUsersData = [
   {
-    email: "john.d@example.com",
-    firstName: "John",
-    lastName: "Doe",
-    password: "Admin!",
-    role: "admin",
+    id: usersIds.admin,
+    email: "admin@example.com",
+    firstName: "Admin",
+    lastName: "Admin",
+    password: "Admin1!",
+    role: "admin" as const,
+    theme: "dark" as const,
+    language: "en" as const,
   },
   {
-    email: "jane.d@example.com",
-    firstName: "Jane",
+    id: usersIds.dev,
+    email: "john.doe@example.com",
+    firstName: "John",
     lastName: "Doe",
-    password: "User!",
-    role: "dev",
+    password: "John1!",
+    role: "dev" as const,
+    theme: "light" as const,
+    language: "en" as const,
   },
 ];
 
@@ -30,7 +31,7 @@ export async function seedUsers() {
     seedUsersData.map(async (user) => ({
       ...user,
       password: await hashPassword(user.password),
-    })),
+    }))
   );
 
   await db.insert(userSchema).values(userData);

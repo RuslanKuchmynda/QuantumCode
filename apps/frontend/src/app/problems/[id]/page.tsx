@@ -8,31 +8,40 @@ import { getProblemById } from "@/components/problems/Problems.funcs";
 import { CodeEditor } from "@/components/ui/CodeEditor";
 import ProblemInfo from "@/components/problems/ProblemInfo";
 
-export default function ProblemPage({ params }: { params: Promise<{ id: number }> }) {
+export default function ProblemPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = use(params);
   const { problemDetails, setProblemDetails } = useProblemsStore();
   const [code, setCode] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState("python");
-  
-  const { data: details, isLoading } = useQuery({
-    queryKey: ['problem', id],
-    queryFn: () => getProblemById(id),
+  const [selectedLanguage, setSelectedLanguage] = useState("JavaScript");
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["problem", id],
+    queryFn: () => getProblemById(id.toString()),
   });
 
   useEffect(() => {
-    if (details) {
-      setProblemDetails(id, details);
-      setCode(details.starterCode[selectedLanguage]);
+    if (data) {
+      setProblemDetails(id, data.problem);
+      const starterCode = data.problem.details?.starterCode["JavaScript"];
+      if (starterCode) {
+        setCode(starterCode.code);
+      }
     }
-  }, [details, id, setProblemDetails, selectedLanguage]);
+  }, [data, id, setProblemDetails, selectedLanguage]);
 
   const handleLanguageChange = (language: string) => {
     setSelectedLanguage(language);
-    setCode(details?.starterCode[language] || "");
+    setCode(problemDetails[id]?.details?.starterCode[language].code || "");
   };
 
   const handleReset = () => {
-    setCode(details?.starterCode[selectedLanguage] || "");
+    setCode(
+      problemDetails[id]?.details?.starterCode[selectedLanguage].code || ""
+    );
   };
 
   const handleSubmit = () => {
@@ -41,7 +50,7 @@ export default function ProblemPage({ params }: { params: Promise<{ id: number }
   };
 
   if (isLoading) return <div>Loading...</div>;
-  if (!details) return <div>Problem not found</div>;
+  if (!problemDetails[id]) return <div>Problem not found</div>;
 
   return (
     <div className="mx-auto py-8 px-4">
@@ -53,6 +62,7 @@ export default function ProblemPage({ params }: { params: Promise<{ id: number }
           <CodeEditor
             value={code}
             language={selectedLanguage}
+            languageList={problemDetails[id]?.details?.availableLanguages || []}
             onChange={setCode}
             onLanguageChange={handleLanguageChange}
             onReset={handleReset}

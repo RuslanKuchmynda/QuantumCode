@@ -1,9 +1,9 @@
 import { Card } from "@/components/ui/Card";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { Example } from "@shared/interfaces/problem";
+import { Examples } from "@shared/interfaces/problem";
 
 interface ExampleCardProps {
-  example: Example[];
+  example?: Examples[];
 }
 
 export default function ExampleCard({ example }: ExampleCardProps) {

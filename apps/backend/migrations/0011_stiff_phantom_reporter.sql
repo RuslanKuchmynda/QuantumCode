@@ -1,0 +1,2 @@
+DROP TYPE "public"."programming_language";--> statement-breakpoint
+CREATE TYPE "public"."programming_language" AS ENUM('JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'C#', 'Go', 'Rust', 'PHP', 'Ruby', 'Swift', 'Kotlin');

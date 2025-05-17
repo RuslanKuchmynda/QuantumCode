@@ -4,7 +4,7 @@ import ExampleCard from "../example-card/ExampleCard";
 import { Problem } from "@shared/interfaces/problem";
 
 export default function ProblemInfo({ problem }: { problem: Problem }) {
-  console.log(problem)
+  console.log(problem);
   return (
     <>
       <div className="flex items-center justify-between sticky top-0 bg-background py-2 z-10">
@@ -15,16 +15,16 @@ export default function ProblemInfo({ problem }: { problem: Problem }) {
       <Card className="p-6">
         <h2 className="text-xl font-semibold mb-4">Description</h2>
         <p className="text-gray-700 whitespace-pre-line">
-          {problem?.description}
+          {problem?.details?.description}
         </p>
       </Card>
 
-      <ExampleCard example={problem?.example} />
+      <ExampleCard example={problem?.details?.examples} />
 
       <Card className="p-6">
         <h2 className="text-xl font-semibold mb-4">Constraints</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-700">
-          {problem?.constraints.map((constraint, index) => (
+          {problem?.details?.constraints.map((constraint, index) => (
             <li key={index}>{constraint}</li>
           ))}
         </ul>

@@ -7,6 +7,7 @@ import { SignUpDto } from "@/modules/auth/dto/signUp.dto";
 import { comparePassword, hashPassword } from "@/common/bcrypt.fucns";
 import { WithId } from "@shared/interfaces/withId";
 import { User } from "@shared/interfaces/user";
+import { v4 as uuidv4 } from "uuid";
 
 @Injectable()
 export class AuthService {
@@ -15,7 +16,7 @@ export class AuthService {
   generateToken(user: WithId<User>) {
     const accessToken = this.jwtService.sign(
       { id: user.id, email: user.email },
-      { expiresIn: "60m" },
+      { expiresIn: "60m" }
     );
     return { accessToken };
   }
@@ -56,10 +57,15 @@ export class AuthService {
     const [newUser] = await db
       .insert(userSchema)
       .values({
+        id: uuidv4(),
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
         password: hashedPassword,
+        role: "dev" as const,
+        theme: "light" as const,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       })
       .returning();
 

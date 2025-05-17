@@ -60,7 +60,7 @@ export function Sidebar() {
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     );
-                  },
+                  }
                 )}
               </SidebarMenu>
             </SidebarGroupContent>
@@ -73,14 +73,14 @@ export function Sidebar() {
                 className={cn(
                   isLoggedIn
                     ? "text-destructive hover:text-destructive"
-                    : "text-primary hover:text-primary",
+                    : "text-primary hover:text-primary"
                 )}
                 tooltip={isLoggedIn ? "Sign out" : "Sign In"}
                 onClick={clearAuth}
                 asChild
               >
                 <Link href={routes.signIn}>
-                  {isLoggedIn ? <LogOut /> : <Lock />}
+                  {isLoggedIn ? <LogOut className="text-red-500" /> : <Lock />}
                   <span>{isLoggedIn ? "Sign out" : "Sign In"}</span>
                 </Link>
               </SidebarMenuButton>

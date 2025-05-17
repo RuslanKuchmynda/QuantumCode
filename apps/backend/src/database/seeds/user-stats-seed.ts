@@ -1,34 +1,35 @@
+import { usersIds } from "@/constants/users-ids";
+import { userStatsIds } from "@/constants/users-ids";
 import { db } from "@/database/db";
 import { userStatsSchema } from "@schemas/user-stats.schema";
 
-const seedUsersData: Array<{
-  userId: number;
-  accuracy: number;
-  ranking: number;
-  difficultyDistribution: { easy: number; medium: number; hard: number };
-  streak: number;
-  solvedProblem: number;
-}> = [
+const seedUserStatsData = [
   {
-    userId: 1,
-    accuracy: 85,
+    id: userStatsIds.admin,
+    userId: usersIds.admin,
+    problemsSolved: 76,
     ranking: 1,
-    difficultyDistribution: { easy: 25, medium: 10, hard: 4 },
-    streak: 7,
-    solvedProblem: 39,
+    successRate: 96,
+    currentStreak: 14,
+    bestStreak: 78,
+    globalRanking: 1,
+    updatedAt: new Date(),
   },
   {
-    userId: 2,
-    accuracy: 60,
+    id: userStatsIds.dev,
+    userId: usersIds.dev,
+    problemsSolved: 43,
     ranking: 2,
-    difficultyDistribution: { easy: 17, medium: 3, hard: 1 },
-    streak: 3,
-    solvedProblem: 21,
+    successRate: 75,
+    currentStreak: 4,
+    bestStreak: 12,
+    globalRanking: 2,
+    updatedAt: new Date(),
   },
 ];
 
 export async function seedUserStats() {
-  await db.insert(userStatsSchema).values(seedUsersData);
+  await db.insert(userStatsSchema).values(seedUserStatsData);
 
   console.log("User Stats seeded!");
 }

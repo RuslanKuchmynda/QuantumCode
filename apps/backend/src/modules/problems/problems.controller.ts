@@ -11,7 +11,7 @@ export class ProblemsController {
   }
 
   @Get(":id")
-  getProblemById(@Param("id") id: number) {
+  getProblemById(@Param("id") id: string) {
     return this.problemsService.getProblemById(id);
   }
 }
