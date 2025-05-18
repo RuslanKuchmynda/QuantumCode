@@ -15,4 +15,6 @@ export const routes = {
 export const apiRoutes = {
   signIn: "/sign-in",
   problems: "/problems",
+  user: "/user",
+  userStats: "/user/stats",
 };

@@ -7,13 +7,16 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    log.debug(`Request to ${config.url}`);
+    const token = localStorage.getItem("accessToken");
+    console.log(token);
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => {
-    log.error(`Request Error: ${error.message}`);
     return Promise.reject(error);
-  },
+  }
 );
 
 api.interceptors.response.use(
@@ -24,7 +27,7 @@ api.interceptors.response.use(
   (error) => {
     log.error(`Response Error: ${error.message}`);
     return Promise.reject(error);
-  },
+  }
 );
 
 const handleApiError = (error: unknown): string => {

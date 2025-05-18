@@ -6,14 +6,14 @@ import { JwtService } from "@nestjs/jwt";
 import { SignUpDto } from "@/modules/auth/dto/signUp.dto";
 import { comparePassword, hashPassword } from "@/common/bcrypt.fucns";
 import { WithId } from "@shared/interfaces/withId";
-import { User } from "@shared/interfaces/user";
+import { UserLogin } from "@shared/interfaces/user";
 import { v4 as uuidv4 } from "uuid";
 
 @Injectable()
 export class AuthService {
   constructor(private jwtService: JwtService) {}
 
-  generateToken(user: WithId<User>) {
+  generateToken(user: WithId<UserLogin>) {
     const accessToken = this.jwtService.sign(
       { id: user.id, email: user.email },
       { expiresIn: "60m" }
