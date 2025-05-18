@@ -9,7 +9,7 @@ export default function UserInfoCard() {
   });
 
   return (
-    <div className="flex items-center gap-6">
+    <div className="flex items-center gap-6 my-6">
       <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
         <span className="text-2xl font-bold">{user?.firstName[0]}</span>
       </div>
