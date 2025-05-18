@@ -40,9 +40,7 @@ export const problemDetailsSchema = pgTable(schemas.problemDetails, {
       testCases?: TestCase[];
     };
   }>(),
-  hints: jsonb("hints").notNull().default([]).$type<{
-    [key in (typeof programmingLanguageEnum.enumValues)[number]]?: string[];
-  }>(),
+  hints: jsonb("hints").notNull().default([]),
   solution: jsonb("solution").notNull().$type<{
     [key in (typeof programmingLanguageEnum.enumValues)[number]]?: {
       code: string;

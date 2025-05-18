@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
 import { useTheme } from "next-themes";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
+import debounce from "lodash/debounce";
 
 loader.config({
   paths: {
@@ -39,6 +40,13 @@ export function CodeEditor({
   onSubmit,
 }: CodeEditorProps) {
   const { theme } = useTheme();
+
+  const debouncedOnChange = useCallback(
+    debounce((value: string | undefined) => {
+      onChange(value || "");
+    }, 1000),
+    [onChange]
+  );
 
   useEffect(() => {
     loader.init().then((monaco) => {
@@ -117,7 +125,7 @@ export function CodeEditor({
         defaultLanguage={language.toLowerCase()}
         language={language.toLowerCase()}
         value={value}
-        onChange={(value) => onChange(value || "")}
+        onChange={debouncedOnChange}
         theme={theme === "dark" ? "quantum-dark" : "light"}
         options={{
           minimap: { enabled: false },

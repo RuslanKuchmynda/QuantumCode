@@ -4,6 +4,7 @@ interface ProblemStatsProps {
   type: string;
 }
 
+//TODO: fix dublicate components
 export default function ProblemStats({
   submission,
   successRate,
