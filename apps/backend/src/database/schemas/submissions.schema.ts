@@ -2,9 +2,9 @@ import { integer } from "drizzle-orm/pg-core/columns";
 
 import { pgTable } from "drizzle-orm/pg-core/table";
 import { text, timestamp } from "drizzle-orm/pg-core/columns";
-import { userSchema } from "./users.schema";
-import { schemas } from "../schema-constants";
-import { problemsSchema } from "./problems.schema";
+import { userSchema } from "@/database/schemas/users.schema";
+import { schemas } from "@/database/schema-constants";
+import { problemsSchema } from "@/database/schemas/problems.schema";
 
 export const submissionsSchema = pgTable(schemas.submissions, {
   id: text("id").primaryKey(),

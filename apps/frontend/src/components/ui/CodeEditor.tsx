@@ -1,7 +1,7 @@
 "use client";
 
 import { Editor, loader } from "@monaco-editor/react";
-import { Card } from "./Card";
+import { Card } from "@/components/ui/Card";
 import {
   Select,
   SelectContent,

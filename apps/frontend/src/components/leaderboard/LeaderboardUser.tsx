@@ -1,7 +1,10 @@
 import { LeaderboardUser as LeaderboardUserI } from "@shared/interfaces/leaderboard";
 import { Card } from "@/components/ui/Card";
 import { Star, Target } from "lucide-react";
-import { getRankColor, getRankIcon } from "./LeaderboardUser.funcs";
+import {
+  getRankColor,
+  getRankIcon,
+} from "@/components/leaderboard/LeaderboardUser.funcs";
 import Image from "next/image";
 
 export default function LeaderboardUser({ user }: { user: LeaderboardUserI }) {

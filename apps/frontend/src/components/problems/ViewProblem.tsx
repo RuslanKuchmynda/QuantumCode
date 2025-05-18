@@ -7,16 +7,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/Sheet";
-import { Button } from "../ui/Button";
+import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import ProblemStats from "@/components/problems/ProblemStats";
 import Link from "next/link";
-import ExampleCard from "../example-card/ExampleCard";
 import { useProblemsStore } from "@/store/problems-store";
 import { useQuery } from "@tanstack/react-query";
-import { getProblemById } from "./Problems.funcs";
+import { getProblemById } from "@/components/problems/Problems.funcs";
 import { useEffect, useState } from "react";
 import { ProblemStats as ProblemStatsType } from "@shared/interfaces/problem";
+import InfoCard from "@/components/info-card/InfoCard";
 
 interface ViewProblemProps {
   problemId: string;
@@ -67,7 +67,10 @@ export default function ViewProblem({
               {problemDetails[problemId]?.details?.description}
             </p>
           </div>
-          <ExampleCard example={problemDetails[problemId]?.details?.examples} />
+          <InfoCard
+            title={"Examples"}
+            example={problemDetails[problemId]?.details?.examples}
+          />
           <ProblemStats
             submission={problemStats?.totalSubmissions || 0}
             successRate={problemStats?.successRate || 0}

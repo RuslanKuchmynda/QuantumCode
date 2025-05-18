@@ -1,7 +1,7 @@
 import { integer, text, timestamp } from "drizzle-orm/pg-core/columns";
 import { pgTable } from "drizzle-orm/pg-core/table";
-import { schemas } from "../schema-constants";
-import { problemsSchema } from "./problems.schema";
+import { schemas } from "@/database/schema-constants";
+import { problemsSchema } from "@/database/schemas/problems.schema";
 
 export const problemStatsSchema = pgTable(schemas.problemStats, {
   id: text("id").primaryKey(),

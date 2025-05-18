@@ -1,6 +1,6 @@
 import { integer, text } from "drizzle-orm/pg-core/columns";
 import { pgTable } from "drizzle-orm/pg-core/table";
-import { schemas } from "../schema-constants";
+import { schemas } from "@/database/schema-constants";
 
 export const achievementsSchema = pgTable(schemas.achievements, {
   id: text("id").primaryKey(),

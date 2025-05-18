@@ -1,8 +1,7 @@
 import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
-import ExampleCard from "../example-card/ExampleCard";
 import { Problem } from "@shared/interfaces/problem";
 import { useMemo } from "react";
+import InfoCard from "@/components/info-card/InfoCard";
 
 export default function ProblemInfo({ problem }: { problem: Problem }) {
   return useMemo(
@@ -13,23 +12,16 @@ export default function ProblemInfo({ problem }: { problem: Problem }) {
           <Badge variant={problem?.difficulty}>{problem?.difficulty}</Badge>
         </div>
 
-        <Card className="p-6">
-          <h2 className="text-xl font-semibold mb-4">Description</h2>
-          <p className="text-gray-700 whitespace-pre-line">
-            {problem?.details?.description}
-          </p>
-        </Card>
+        <InfoCard
+          title={"Description"}
+          description={problem?.details?.description}
+        />
 
-        <ExampleCard example={problem?.details?.examples} />
+        <InfoCard title={"Examples"} example={problem?.details?.examples} />
 
-        <Card className="p-6">
-          <h2 className="text-xl font-semibold mb-4">Constraints</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-700">
-            {problem?.details?.constraints.map((constraint, index) => (
-              <li key={index}>{constraint}</li>
-            ))}
-          </ul>
-        </Card>
+        <InfoCard title={"Constraints"} list={problem?.details?.constraints} />
+
+        <InfoCard title={"Hints"} list={problem?.details?.hints} />
       </>
     ),
     [problem]

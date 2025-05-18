@@ -1,7 +1,7 @@
 import { jsonb, text, boolean, integer } from "drizzle-orm/pg-core/columns";
 import { pgTable } from "drizzle-orm/pg-core/table";
-import { schemas } from "../schema-constants";
-import { problemsSchema } from "./problems.schema";
+import { schemas } from "@/database/schema-constants";
+import { problemsSchema } from "@/database/schemas/problems.schema";
 
 export const problemTestsSchema = pgTable(schemas.problemTests, {
   id: text("id").primaryKey(),

@@ -7,9 +7,9 @@ import { db } from "@/database/db";
 import {
   problemDetailsSchema,
   programmingLanguageEnum,
-} from "../schemas/problem-details.schema";
-import { problemStatsSchema } from "../schemas/problem-stats.schema";
-import { problemsSchema } from "../schemas/problems.schema";
+} from "@/database/schemas/problem-details.schema";
+import { problemStatsSchema } from "@/database/schemas/problem-stats.schema";
+import { problemsSchema } from "@/database/schemas/problems.schema";
 
 const seedProblemsData = [
   {

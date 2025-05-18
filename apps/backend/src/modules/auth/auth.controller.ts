@@ -1,5 +1,5 @@
 import { Controller, Post, Body } from "@nestjs/common";
-import { AuthService } from "./auth.service";
+import { AuthService } from "@/modules/auth/auth.service";
 import { SignInDto } from "@/modules/auth/dto/signIn.dto";
 import { routes } from "@/common/routes";
 import { SignUpDto } from "@/modules/auth/dto/signUp.dto";

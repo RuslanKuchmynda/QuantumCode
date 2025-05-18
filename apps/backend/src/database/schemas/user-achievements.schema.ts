@@ -1,8 +1,8 @@
 import { pgTable } from "drizzle-orm/pg-core/table";
 import { text, timestamp } from "drizzle-orm/pg-core/columns";
-import { achievementsSchema } from "./achievements.schema";
-import { userSchema } from "./users.schema";
-import { schemas } from "../schema-constants";
+import { achievementsSchema } from "@/database/schemas/achievements.schema";
+import { userSchema } from "@/database/schemas/users.schema";
+import { schemas } from "@/database/schema-constants";
 
 export const userAchievementsSchema = pgTable(schemas.userAchievements, {
   id: text("id").primaryKey(),

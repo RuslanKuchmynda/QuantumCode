@@ -6,8 +6,6 @@ import { useEffect, use, useState } from "react";
 import { getProblemById } from "@/components/problems/Problems.funcs";
 import { CodeEditor } from "@/components/ui/CodeEditor";
 import ProblemInfo from "@/components/problems/ProblemInfo";
-import { Card } from "@/components/ui/Card";
-import ProblemHints from "@/components/problems/ProblemHints";
 
 export default function ProblemPage({
   params,
@@ -58,23 +56,6 @@ export default function ProblemPage({
       <div className="grid grid-cols-3 gap-6 h-[calc(100vh-4rem)] pr-24">
         <div className="col-span-1 space-y-6 overflow-y-auto pr-4">
           <ProblemInfo problem={problemDetails[id]} />
-          <ProblemHints hints={problemDetails[id].details?.hints || []} />
-          {/* TODO: create a component for time and memory limits */}
-          <Card className="p-6">
-            <h2 className="text-xl font-semibold mb-4">Time & Memory Limits</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-gray-500">Time Limit</p>
-                <p className="font-medium">{problemDetails[id]?.timeLimit}ms</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Memory Limit</p>
-                <p className="font-medium">
-                  {problemDetails[id]?.memoryLimit}MB
-                </p>
-              </div>
-            </div>
-          </Card>
         </div>
         <div className="col-span-2">
           <CodeEditor

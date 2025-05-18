@@ -1,6 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { getUser } from "../user.funcs";
+import { getUser } from "@/components/user/user.funcs";
 
 export default function UserInfoCard() {
   const { data: user } = useQuery({

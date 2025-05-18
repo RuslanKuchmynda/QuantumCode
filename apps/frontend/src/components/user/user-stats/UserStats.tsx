@@ -2,7 +2,7 @@
 import { Card } from "@/components/ui/Card";
 import { useQuery } from "@tanstack/react-query";
 import { CheckCircle, Target, TrendingUp, Trophy } from "lucide-react";
-import { getUserStats } from "../user.funcs";
+import { getUserStats } from "@/components/user/user.funcs";
 
 export default function UserStats() {
   const { data: userStats } = useQuery({

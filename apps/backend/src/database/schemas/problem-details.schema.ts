@@ -1,8 +1,8 @@
 import { pgTable } from "drizzle-orm/pg-core/table";
 
 import { jsonb, pgEnum, text } from "drizzle-orm/pg-core/columns";
-import { schemas } from "../schema-constants";
-import { problemsSchema } from "./problems.schema";
+import { schemas } from "@/database/schema-constants";
+import { problemsSchema } from "@/database/schemas/problems.schema";
 
 export interface TestCase {
   input: string;

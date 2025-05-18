@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import ClientWrapper from "@/app/ClientRoot";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -34,8 +34,8 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-      >
-        <ClientWrapper>{children}</ClientWrapper>
+        >
+          <ClientWrapper>{children}</ClientWrapper>
         </ThemeProvider>
       </body>
     </html>
