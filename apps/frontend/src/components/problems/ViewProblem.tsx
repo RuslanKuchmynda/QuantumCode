@@ -59,9 +59,6 @@ export default function ViewProblem({
             <Badge variant={problemDetails[problemId]?.difficulty}>
               {problemDetails[problemId]?.difficulty}
             </Badge>
-            <span className="text-sm text-gray-500">
-              Status: {problemDetails[problemId]?.status}
-            </span>
           </div>
 
           <div>
@@ -74,7 +71,7 @@ export default function ViewProblem({
           <ProblemStats
             submission={problemStats?.totalSubmissions || 0}
             successRate={problemStats?.successRate || 0}
-            type={problemDetails[problemId]?.category}
+            category={problemDetails[problemId]?.category}
           />
         </div>
         <SheetFooter className="flex my-6">

@@ -1,14 +1,14 @@
 interface ProblemStatsProps {
   submission: number;
   successRate: number;
-  type: string;
+  category: string;
 }
 
 //TODO: fix dublicate components
 export default function ProblemStats({
   submission,
   successRate,
-  type,
+  category,
 }: ProblemStatsProps) {
   return (
     <div className="grid grid-cols-3 gap-4 text-sm">
@@ -21,8 +21,8 @@ export default function ProblemStats({
         <p className="font-semibold dark:text-gray-100">{successRate}</p>
       </div>
       <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-md">
-        <p className="text-gray-500 dark:text-gray-400">Type</p>
-        <p className="font-semibold dark:text-gray-100">{type}</p>
+        <p className="text-gray-500 dark:text-gray-400">Category</p>
+        <p className="font-semibold dark:text-gray-100 capitalize">{category}</p>
       </div>
     </div>
   );
